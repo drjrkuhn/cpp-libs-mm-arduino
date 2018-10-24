@@ -1,0 +1,64 @@
+Micro-manager Device Driver Build Notes
+========================================
+
+The current version of MM and the device adapters need some
+tweaking to build with VisualStudio 2013.
+
+Basic setup
+-----------
+
+1. Follow the directions on Visual Studio project settings for device adapters
+   https://micro-manager.org/wiki/Visual_Studio_project_settings_for_device_adapters
+
+2. Click on View->Other Windows->Property Manager and add the MMCommon and 
+   MMDeviceAdapter property sheets as instructed.
+   
+3. These instructions were for an earlier version of Visual Studio, and we need
+   a few more modifications.
+   
+
+Boost library update
+--------------------
+
+1. Boost version 1-50-0 included in the 3rdpartypublic MM library folder does not 
+   play well with VS2013. Download the latest boost version (1-58-0 worked for me) 
+   and unzip it to \micromanager-source\3rdpartypublic\boost-versions.
+
+2. You will also need matching pre-compiled boost libraries for the visual studio 
+   platform (v12). You may need to do a google search. 
+
+3. Download and extract the precompiled binaries for 32-bit and 64-bit Visual Studio 
+   version 12.0 and rename the directories to boost_1_58_0-lib-Win32 and 
+   boost_1_58_0-lib-x64 or whatever version matches the boost include library you 
+   downloaded above
+
+4. Open the property tree in any configuration, right click on MMCommon, and 
+   select "Properties" to edit it.
+
+5. Go to Common Properties->User Macros. Find the two lines including the 
+   "boost-version\boost_1_50_0" and change them to "xxx\boost_1_58_0" or
+   wherever you installed boost
+
+Alternatively, edit the following file under \micromanager-source directly:
+
+  \micromanager-source\micromanager2\buildscripts\VisualStudio\MMCommon.props
+
+and change the following two lines
+    <MM_BOOST_INCLUDEDIR>$(MM_3RDPARTYPUBLIC)\boost-versions\boost_1_55_0</MM_BOOST_INCLUDEDIR>
+    <MM_BOOST_LIBDIR>$(MM_3RDPARTYPUBLIC)\boost-versions\boost_1_55_0-lib-$(Platform)</MM_BOOST_LIBDIR>
+to
+    <MM_BOOST_INCLUDEDIR>$(MM_3RDPARTYPUBLIC)\boost-versions\boost_1_58_0</MM_BOOST_INCLUDEDIR>
+    <MM_BOOST_LIBDIR>$(MM_3RDPARTYPUBLIC)\boost-versions\boost_1_58_0-lib-$(Platform)</MM_BOOST_LIBDIR>
+
+   
+
+Platform Toolset Update
+-----------------------
+
+1. The Platform Toolset of each project needs to be updated from Windows7.1. 
+   Go back to the solutions page, right click on a project and select "Properties". 
+
+2. Make sure that "All Configurations" and "All Platforms" are selected at the top.
+
+3. Go to Configuration Properties->General and change Platform Toolset to "Visual Studio 2013"
+
