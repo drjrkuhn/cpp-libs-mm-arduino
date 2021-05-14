@@ -92,8 +92,6 @@ Building Boost 1.58 from sources
     move stage_x64\lib\* ..\boost_1_55_0-lib-x64
 ```
 
-<<<<<<< HEAD:BUILD_NOTES.md
-=======
 Building Boost 1.58 from sources
 --------------------------------
 
@@ -129,8 +127,6 @@ Building Boost 1.58 from sources
     mkdir ..\boost_1_58_0-lib-x64
     move stage_x64\lib\* ..\boost_1_55_0-lib-x64
 ```
-
->>>>>>> f1d545ddce2e30599c365354c41a6ded80f6eb96:BUILD_NOTES.txt
 
 Platform Toolset Update
 -----------------------
