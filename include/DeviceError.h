@@ -72,7 +72,7 @@ inline void initCommonErrors(const char* __remoteName, long __minFirmwareVersion
 	__setErrorText(ERR_PORT_OPEN_FAILED, (string("Failed opening the ") + __remoteName + " USB device").c_str());
 	__setErrorText(ERR_COMMUNICATION, (string("Problem communicating with the ") + __remoteName).c_str());
 	__setErrorText(ERR_NO_PORT_SET, (string("Hub Device not found. The ") + __remoteName + " Hub device is needed to create this device").c_str());
-	__setErrorText(ERR_VERSION_MISMATCH, (string("The firmware version on the ") + __remoteName + " is not compatible with this adapter. Please use firmware version >= " + to_string(__minFirmwareVersion)).c_str());
+	__setErrorText(ERR_VERSION_MISMATCH, (string("The firmware version on the ") + __remoteName + " is not compatible with this adapter. Please use firmware version >= " +to_string(__minFirmwareVersion)).c_str());
 }
 
 #define assertOK(RET)	assertResult((RET), __FILE__, __LINE__)
