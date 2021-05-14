@@ -102,3 +102,12 @@ Platform Toolset Update
 
 3. Go to Configuration Properties->General and change Platform Toolset to "Visual Studio 2013"
 
+4. Make sure to update the Toolset on the following projects and recompile. The important one is MMDevice-SharedRuntime. This will be compiled as a subproject of your device driver. The toolsets need
+to match during the linking process.
+
+   - MMCore
+   - MMDevice-SharedRuntime
+   - MMDevice-StaticRuntime
+   - MMCoreJ_wrap
+   - MMCorePy_wrap
+   
