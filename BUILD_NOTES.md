@@ -46,11 +46,15 @@ Alternatively, edit the following file under \micromanager-source directly:
   \micromanager-source\mmCoreAndDevices\buildscripts\VisualStudio\MMCommon.props
 
 and change the following two lines
+```xml
     <MM_BOOST_INCLUDEDIR>$(MM_3RDPARTYPUBLIC)\boost-versions\boost_1_55_0</MM_BOOST_INCLUDEDIR>
     <MM_BOOST_LIBDIR>$(MM_3RDPARTYPUBLIC)\boost-versions\boost_1_55_0-lib-$(Platform)</MM_BOOST_LIBDIR>
+```
 to
+```xml
     <MM_BOOST_INCLUDEDIR>$(MM_3RDPARTYPUBLIC)\boost-versions\boost_1_58_0</MM_BOOST_INCLUDEDIR>
     <MM_BOOST_LIBDIR>$(MM_3RDPARTYPUBLIC)\boost-versions\boost_1_58_0-lib-$(Platform)</MM_BOOST_LIBDIR>
+```
 
 Building Boost 1.58 from sources
 --------------------------------
